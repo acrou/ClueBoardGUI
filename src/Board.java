@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -147,12 +148,21 @@ public class Board {
     public Map<Character, String> getRooms() {
         return rooms;
     }
+    public ArrayList<String> getRoomNames(){
+        ArrayList<String> roomNames = new ArrayList<String>();
+        Set<Character> keySet = rooms.keySet();
+        for(Character c :keySet)
+            roomNames.add(rooms.get(c));
+        return roomNames;
+    }
 
     public RoomCell getRoomCellAt(int i, int j) {
         return (RoomCell) cells.get(calcIndex(i, j));
     }
 
     public BoardCell getCellAt(int i) {
+        System.out.println("Actual i " + i);
+        System.out.println("Computed i" + calcIndex(cells.get(i).getRow(), cells.get(i).getColumn()));
         return cells.get(i);
     }
 

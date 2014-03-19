@@ -41,8 +41,6 @@ public abstract class BoardCell {
         return false;
     }
 
-    public int getPosition(){
-        return column+row*column;
-    }
+
     // future draw function here
 }

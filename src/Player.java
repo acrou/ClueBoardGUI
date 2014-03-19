@@ -1,9 +1,10 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-/**
+/**Abstracts qualities of both types of Players
  * Created by Marissa on 3/10/14.
  */
+
 public class Player {
     protected String name;
     protected ArrayList<Card> myCards;
@@ -11,7 +12,9 @@ public class Player {
     protected RoomCell prevRoom;
     protected Card proof;
     protected Color color;
-
+    public Player (){
+       myCards = new ArrayList<Card>();
+    }
     //getters
     public BoardCell getLocation (){
         return location;
@@ -42,7 +45,9 @@ public class Player {
     }
     public void setLocation(int loc, Board b){
         location = b.getCellAt(loc);
-
+    }
+    public void addCard(Card c){
+        myCards.add(c);
     }
 
     public Card makeSuggestion (){
@@ -60,7 +65,6 @@ public class Player {
                 proof = myCards.get(i);
                 return i;
             }
-
         }
         return -1;
     }

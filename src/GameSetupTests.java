@@ -33,13 +33,26 @@ public class GameSetupTests {
      * Testing loading people
      */
     @Test
-
+    public void testCardUniquenessOne (){
+        Random seed = new Random();
+        int rand = seed.nextInt()%21;
+        if(rand<0)//if negative
+            rand *=-1;
+        Card randCard = myGame.getDeck().get(rand);
+        int occurence =0;
+        for(Player p: myGame.getPlayers()){
+            if(p.getMyCards().contains(randCard))
+                occurence++;
+        }
+        assertEquals(occurence, 1);
+    }
+    @Test
     public void testHumanPlayer(){
          //test the name has first and last
         assertEquals(myGame.getHuman().getName().split(" ").length, 2);
         //test the color is red
         assertEquals(myGame.getHuman().getColor(), Color.RED);
-        assertEquals(myGame.getHuman().getLocation().getPosition(), 473 );
+        assertEquals(myGame.getBoard().calcIndex(myGame.getHuman().getLocation().getRow(), myGame.getHuman().getLocation().getColumn()), 473 );
     }
     @Test
     public void testComputerPlayerOne(){
@@ -62,7 +75,9 @@ public class GameSetupTests {
      */
     @Test
     public void testDeckLoading (){
+       // myGame.generateDeck();
         ArrayList<Card> myDeck = myGame.getDeck();
+        myGame.generateNumTypes();
         Map<Card.CardType, Integer> myNumTypes = myGame.getNumTypes();
         assertEquals(myDeck.size(), 21);
 
@@ -74,12 +89,17 @@ public class GameSetupTests {
         assertTrue(myGame.hasInDeck("Gondor"));
         assertTrue(myGame.hasInDeck("Aeglos"));
     }
+
     /**
      * Test dealing the cards
      */
 
     @Test
     public void testAllCardsDealt(){
+        myGame.generateDeck();
+        myGame.passOutCards();
+        myGame.generateNumTypes();
+
         Map<Card.CardType, Integer> myNumTypes = myGame.getNumTypes();
 
         assertEquals(myNumTypes.get(Card.CardType.PERSON), (Integer)0);
@@ -92,18 +112,6 @@ public class GameSetupTests {
         for(Player p: myGame.getPlayers() )
             assertTrue(p.getMyCards().size() == 3 || p.getMyCards().size() == 4);//21/6 = 3.5
     }
-    @Test
-    public void testCardUniquenessOne (){
-        Random seed = new Random();
-        int rand = seed.nextInt()%myGame.getDeck().size();
-        Card randCard = myGame.getDeck().get(rand);
-        int occurence =0;
-        for(Player p: myGame.getPlayers()){
-              if(p.getMyCards().contains(randCard))
-                  occurence++;
 
-        }
-        assertEquals(occurence, 1);
-    }
 
 }

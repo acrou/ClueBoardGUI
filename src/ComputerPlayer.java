@@ -13,6 +13,7 @@ public class ComputerPlayer extends Player {
 //        Board.pickLocation(location);
 //    }
     public ComputerPlayer (){
+        super();
         if(counter == 0){
             setColor(Color.BLUE);
             setName("Elessar Telcontal");
