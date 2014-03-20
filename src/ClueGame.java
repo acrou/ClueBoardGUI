@@ -17,13 +17,15 @@ import java.util.*;
 public class ClueGame {
     private ArrayList<Card> deck;
     private Map<Card.CardType, Integer> numTypes;
-    private ArrayList<Player> players;
     private Player human;
     private Player current; //the player's whose turn it is
     private Board board;
     private Solution solution;
+    //names for configuration
     private String peopleFileName;
     private String weaponsFileName;
+    //Lists for read in data
+    private ArrayList<Player> players;
     private ArrayList<Integer> startingLocation;
     private ArrayList<String> weapons;
 
@@ -33,6 +35,7 @@ public class ClueGame {
      * @param b Board being played on
      */
     public ClueGame(Board b) throws FileNotFoundException {
+        //Initializes class variables
         board = b;
         peopleFileName = "playerNames.txt";
         weaponsFileName = "weapons.txt";
@@ -44,14 +47,12 @@ public class ClueGame {
         numTypes.put(Card.CardType.ROOM, 0);
         numTypes.put(Card.CardType.WEAPON, 0);
         numTypes.put(Card.CardType.PERSON, 0);
+        //Call to configure the game
         setUp();
-
-
-
     }
 
     public void setUp() throws FileNotFoundException {
-        readnInStartingLocations();
+        readInStartingLocations();
         loadPeople();
         loadWeapons();
         generateDeck();
@@ -71,7 +72,6 @@ public class ClueGame {
         }
         return null;
     }
-
     public Player getHuman() {
         return human;
     }
@@ -84,66 +84,26 @@ public class ClueGame {
         return players;
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
     public Map<Card.CardType, Integer> getNumTypes() {
 
-       // generateNumTypes();
-        return numTypes;
+          return numTypes;
     }
-    public void generateNumTypes(){
-       // Map<Card.CardType, Integer> tempNumType = new TreeMap<Card.CardType, Integer>();
-        if(deck.size()==0)
-            zeroCardTypes();
-        for(Card c: deck){
-            System.out.println("in room");
-            switch(c.getType()){
-                case ROOM:  numTypes.put(Card.CardType.ROOM, (Integer) (numTypes.get(Card.CardType.ROOM)+1));
-                    break;
-                case PERSON: numTypes.put(Card.CardType.PERSON, (Integer)(numTypes.get(Card.CardType.PERSON)+1 ));
-                    break;
-                case WEAPON: numTypes.put(Card.CardType.WEAPON, (Integer)(numTypes.get(Card.CardType.WEAPON)+1 ));
-                    break;
-                default:
-                    break;
 
-            }
-        }
+    /**
+     * Hard-coded solution to the game
+     *
+     * @return solution
+     */
+    public Solution getSolution() {
+        solution = new Solution("Gandalf Grey", "Gondor", "Aeglos");
+        return solution;
     }
-    public void zeroCardTypes(){
-        numTypes.put(Card.CardType.ROOM, (Integer)0);
-        numTypes.put(Card.CardType.PERSON, (Integer)0);
-        numTypes.put(Card.CardType.WEAPON, (Integer)0);
-
-    }
-    public boolean distributedWell(){
-        generateDeck();
-        Random seed = new Random();
-        int rand = seed.nextInt()%21;
-        if(rand<0)//if negative
-            rand *=-1;
-        Card randCard = getDeck().get(rand);
-        passOutCards();
-        //int occurence =0;
-        generateDeck();
-        HashSet<Card> unique= new HashSet<Card>(deck);
-       return (unique.size()==deck.size());
 
 
-    }
-    public boolean equalityInDistribution(){
-
-        passOutCards();
-        boolean even = true;
-        for(Player p: getPlayers() ){
-            System.out.println("size: "+p.getMyCards().size() );
-            if(!(p.getMyCards().size() == 3 || p.getMyCards().size() == 4)){
-                System.out.println("size: "+p.getMyCards().size() );
-                  even  = false;
-            }
-
-          }
-          generateDeck();
-        return even;
-    }
     /**
      * Uses a text file to input in the
      * initial locations for all (both human and
@@ -151,7 +111,7 @@ public class ClueGame {
      *
      * @throws FileNotFoundException
      */
-    public void readnInStartingLocations() throws FileNotFoundException {
+    public void readInStartingLocations() throws FileNotFoundException {
         File file = new File("startLocations.txt");
         Scanner scan = new Scanner(file);
         int count = 0;
@@ -159,7 +119,6 @@ public class ClueGame {
             startingLocation.add(Integer.parseInt(scan.nextLine()));
             count++;
         }
-
     }
 
     /**
@@ -183,6 +142,7 @@ public class ClueGame {
      *
      * @throws FileNotFoundException
      */
+
     public void loadPeople() throws FileNotFoundException {
         readInHuman();
         FileReader people = new FileReader(peopleFileName);
@@ -196,25 +156,138 @@ public class ClueGame {
         }
         scan.close();
     }
-    public void loadWeapons () throws FileNotFoundException{
-        FileReader weaponsFile = new FileReader (weaponsFileName);
-        Scanner scan = new Scanner (weaponsFile);
+
+    public void loadWeapons() throws FileNotFoundException {
+        FileReader weaponsFile = new FileReader(weaponsFileName);
+        Scanner scan = new Scanner(weaponsFile);
         while (scan.hasNext())
             weapons.add(scan.nextLine());
     }
 
+    ////****************GENERATOR METHODS***************////
+
+    public void generateNumTypes() {
+        // Map<Card.CardType, Integer> tempNumType = new TreeMap<Card.CardType, Integer>();
+        if (deck.size() == 0)
+            zeroCardTypes();
+        for (Card c : deck) {
+            System.out.println("in room");
+            switch (c.getType()) {
+                case ROOM:
+                    numTypes.put(Card.CardType.ROOM, (Integer) (numTypes.get(Card.CardType.ROOM) + 1));
+                    break;
+                case PERSON:
+                    numTypes.put(Card.CardType.PERSON, (Integer) (numTypes.get(Card.CardType.PERSON) + 1));
+                    break;
+                case WEAPON:
+                    numTypes.put(Card.CardType.WEAPON, (Integer) (numTypes.get(Card.CardType.WEAPON) + 1));
+                    break;
+                default:
+                    break;
+
+            }
+        }
+    }
+
     /**
-     * Hard-coded solution to the game
-     *
-     * @return solution
+     * Based on the criteria for Cards,
+     * the appropriate amount of each type of
+     * Card is generated
      */
-    public Solution getSolution() {
-        solution = new Solution("Gandalf Grey", "Gondor", "Aeglos");
-        return solution;
+    public void generateDeck() {
+        //loads people
+        for (int i = 0; i < 6; i++) {
+            Card tempPerson = new Card();
+            tempPerson.setType(Card.CardType.PERSON);
+            tempPerson.setName(players.get(i).getName());
+            deck.add(tempPerson);
+        }
+        //loads weapons
+        for (int i = 0; i < 6; i++) {
+            Card tempWeapon = new Card();
+            tempWeapon.setType(Card.CardType.WEAPON);
+            tempWeapon.setName(weapons.get(i));
+            deck.add(tempWeapon);
+        }
+        //loads rooms
+        for (int i = 0; i < 9; i++) {
+            Card tempRoom = new Card();
+            tempRoom.setType(Card.CardType.ROOM);
+            tempRoom.setName(board.getRoomNames().get(i));
+            deck.add(tempRoom);
+        }
+
     }
-    public Board getBoard (){
-        return board;
+
+    /**
+     * Quasi-evenly distributes Cards to each Player
+     * Relies on random generation of index but distributes
+     * in a cycle.
+     */
+
+    public void passOutCards() {
+        Random rand = new Random();
+        int playerCurrent = 0;
+        //hands out cards in a "round of cards" manner
+        while (deck.size() != 0) {
+            //starts back at the first player again if reached end
+            if (playerCurrent == 6)
+                playerCurrent = 0;
+            int randomPos = rand.nextInt() % deck.size();
+            if (randomPos < 0) //ensures the random number is a positive index
+                randomPos *= -1;
+            players.get(playerCurrent).addCard(deck.get(randomPos));
+            //remove from deck
+            deck.remove(randomPos);
+            playerCurrent++;
+
+        }
+        zeroCardTypes();
     }
+
+    ////****************HELPER FUNCTIONS***************////
+    public boolean uniquenessOfCards(){
+        generateDeck();
+        HashSet<Card> unique= new HashSet<Card>(deck);
+        return (unique.size()==deck.size());
+    }
+    public boolean equalityInDistribution(){
+        boolean even = true;
+        for(Player p: getPlayers() ){
+            int size = p.getMyCards().size() / 3;
+            if(!(p.getMyCards().size() == 3 || p.getMyCards().size() == 4)){
+                even  = false;
+            }
+        }
+        return even;
+    }
+
+    /**
+     * Check if a given name is present in the deck of cards
+     *
+     * @param name Specific name (like "Frodo Baggins" as a PLAYER)
+     * @return Presence of the card in the deck
+     */
+    public boolean hasInDeck(String name) {
+        for (Card c : deck) {
+            if (c.getName().equals(name))
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Sets the presence of every card
+     * type to zero.
+     * Used along with draining the deck of it's contents
+     */
+    public void zeroCardTypes() {
+        numTypes.put(Card.CardType.ROOM, (Integer) 0);
+        numTypes.put(Card.CardType.PERSON, (Integer) 0);
+        numTypes.put(Card.CardType.WEAPON, (Integer) 0);
+
+    }
+
     /**
      * Tests an accusation validity
      *
@@ -225,78 +298,5 @@ public class ClueGame {
         return solution.equals(accusation);
     }
 
-    /**
-     * Based on the criteria for Cards,
-     * the appropriate amount of each type of
-     * Card is generated
-     */
-    public void generateDeck() {
-        for(int i =0; i< 6; i++){
-            Card tempPerson = new Card();
-            tempPerson.setType(Card.CardType.PERSON);
-            tempPerson.setName(players.get(i).getName());
-            deck.add(tempPerson);
-        }
-        for (int i =0; i< 6; i++){
-            Card tempWeapon = new Card();
-            tempWeapon.setType(Card.CardType.WEAPON);
-            tempWeapon.setName(weapons.get(i));
-            deck.add(tempWeapon);
-        }
-        for(int i =0; i< 9; i++){
-            Card tempRoom = new Card();
-            tempRoom.setType(Card.CardType.ROOM);
-            tempRoom.setName(board.getRoomNames().get(i));
-            deck.add(tempRoom);
-        }
 
-    }
-
-    //Quasi-evenly distributes Cards to each Player
-    public void passOutCards() {
-        Random rand = new Random();
-        String previousName = "";
-        int playerCurrent =0;
-        while(deck.size()!=0){
-            if( playerCurrent ==6)
-                playerCurrent =0;
-            int randomPos = rand.nextInt()%deck.size();
-            if(randomPos<0)
-                randomPos *= -1;
-            if(deck.get(randomPos).getName().equals(previousName))
-                System.out.println("There have been duplicates");
-            players.get(playerCurrent).addCard(deck.get(randomPos));
-            //remove from deck
-
-            deck.remove(randomPos);
-            playerCurrent++;
-
-        }
-     }
-    public void addToRandomPlayer(Card c){
-        Random rand = new Random();
-        int randomPos = rand.nextInt()%players.size();
-        if(randomPos<0)
-            randomPos *= -1;
-        Player randomPlayer = players.get(randomPos);
-
-        if(randomPlayer.getMyCards().size()<=4)
-            randomPlayer.addCard(c);
-        System.out.println("Players cards in the distribution method");
-        for(Player p: players)
-            System.out.println("Cards: " +"");
-    }
-
-    /**
-     *
-     * @param name     Specific name (like "Frodo Baggins" as a PLAYER)
-     * @return      Presence of th
-     */
-    public boolean hasInDeck(String name) {
-        for (Card c : deck) {
-            if (c.getName().equals(name))
-                return true;
-        }
-        return false;
-    }
 }

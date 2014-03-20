@@ -8,7 +8,7 @@ public class ClueGameRunner  {
     Board b = new Board("gameLayout.csv","legend.txt");
     ClueGame clueGame = new ClueGame(b); //initialize all data that needs to be read in
     System.out.println("size of deck: " + clueGame.getDeck().size());
-        clueGame.equalityInDistribution();
+       // clueGame.equalityInDistribution();
 
 //        clueGame.passOutCards();
 //        int counter = 0;

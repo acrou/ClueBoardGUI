@@ -1,30 +1,51 @@
-//import org.junit.Before;
-//import org.junit.Test;
-//
-///**
-//* Created by Marissa on 3/11/14.
-//*/
-//public class GameActionTests {
-//    /**
-//     * Testing accusations
-//     */
-//    @Before
-//    public void initGame (){
-//        //that sets up the board and a variety of cards (of each type) that will be needed for testing.
-//        ClueGame myGame = new ClueGame();
-//
-//
-//    }
-//    @Test
-//    public void testAccusations(){
-//      Solution mySolution=  myGame.getSolution();
-//      Solution wrongSolution = new Solution("Frodo Baggins", "Gondor", "Barrow-blades");
-//      assertTrue(myGame.isCorrectSolution(mySolution));
-//      assertFalse(myGame.isCorrectSolution(wrongSolution));
-//
-//
-//
-//
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import java.io.FileNotFoundException;
+
+/**
+* Created by Ally and Marissa on 3/11/14.
+*/
+public class GameActionTests {
+    /**
+     * Testing accusations
+     */
+
+    private static ClueGame myGame;
+    private static Board board;
+    @BeforeClass
+    public void initGame () throws FileNotFoundException {
+        //that sets up the board and a variety of cards (of each type) that will be needed for testing.
+        board = new Board("gameLayout.csv","legend.txt");
+        ClueGame myGame = new ClueGame(board);
+
+
+    }
+
+    /**Tests 1 correct solution and 3
+     * fake ones by using helper function in ClueGame
+     */
+    @Test
+    public void testAccusations(){
+        //correct solution
+        Solution mySolution=  myGame.getSolution();
+        //false solutions
+        Solution wrongSolutionOne = new Solution("Frodo Baggins", "Gondor", "Aeglos");
+        Solution wrongSolutionTwo = new Solution("Gandalf Grey", "Gondor", "Sting");
+        Solution wrongSolutionThree = new Solution("Gandalf Grey", "Mirkwood", "Aeglos");
+
+        assertTrue(myGame.isCorrectSolution(mySolution));
+        assertFalse(myGame.isCorrectSolution(wrongSolutionOne));
+        assertFalse(myGame.isCorrectSolution(wrongSolutionTwo));
+        assertFalse(myGame.isCorrectSolution(wrongSolutionThree));
+
+    }
+
+
+
 //  }
 //    @Test
 //    public void testTargetRandomSelection() {
@@ -54,3 +75,4 @@
 //        assertTrue(loc_15_1Tot > 10);
 //    }
 //}
+}

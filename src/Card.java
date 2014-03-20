@@ -11,6 +11,10 @@ public class Card {
     public Card (){
 
     }
+    public Card(String name, CardType type){
+        this.name = name;
+        this.type = type;
+    }
     //getters
     public CardType getType() {
         return type;

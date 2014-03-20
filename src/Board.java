@@ -161,8 +161,7 @@ public class Board {
     }
 
     public BoardCell getCellAt(int i) {
-//        System.out.println("Actual i " + i);
-//        System.out.println("Computed i" + calcIndex(cells.get(i).getRow(), cells.get(i).getColumn()));
+
         return cells.get(i);
     }
 
