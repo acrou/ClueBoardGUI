@@ -114,7 +114,36 @@ public class ClueGame {
         numTypes.put(Card.CardType.WEAPON, (Integer)0);
 
     }
+    public boolean distributedWell(){
+        generateDeck();
+        Random seed = new Random();
+        int rand = seed.nextInt()%21;
+        if(rand<0)//if negative
+            rand *=-1;
+        Card randCard = getDeck().get(rand);
+        passOutCards();
+        //int occurence =0;
+        generateDeck();
+        HashSet<Card> unique= new HashSet<Card>(deck);
+       return (unique.size()==deck.size());
 
+
+    }
+    public boolean equalityInDistribution(){
+
+        passOutCards();
+        boolean even = true;
+        for(Player p: getPlayers() ){
+            System.out.println("size: "+p.getMyCards().size() );
+            if(!(p.getMyCards().size() == 3 || p.getMyCards().size() == 4)){
+                System.out.println("size: "+p.getMyCards().size() );
+                  even  = false;
+            }
+
+          }
+          generateDeck();
+        return even;
+    }
     /**
      * Uses a text file to input in the
      * initial locations for all (both human and
@@ -226,21 +255,24 @@ public class ClueGame {
     //Quasi-evenly distributes Cards to each Player
     public void passOutCards() {
         Random rand = new Random();
-
+        String previousName = "";
+        int playerCurrent =0;
         while(deck.size()!=0){
+            if( playerCurrent ==6)
+                playerCurrent =0;
             int randomPos = rand.nextInt()%deck.size();
             if(randomPos<0)
                 randomPos *= -1;
-//            System.out.println("deck size: "+ deck.size());
-//            System.out.println("deck size: "+ deck.size());
-            Card randomCard = deck.get(randomPos);
-            addToRandomPlayer(randomCard);
+            if(deck.get(randomPos).getName().equals(previousName))
+                System.out.println("There have been duplicates");
+            players.get(playerCurrent).addCard(deck.get(randomPos));
             //remove from deck
+
             deck.remove(randomPos);
+            playerCurrent++;
 
         }
-        System.out.println(deck.size());
-    }
+     }
     public void addToRandomPlayer(Card c){
         Random rand = new Random();
         int randomPos = rand.nextInt()%players.size();

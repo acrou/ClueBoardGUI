@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,27 +29,19 @@ public class GameSetupTests {
          b = new Board("gameLayout.csv","legend.txt");
         myGame = new ClueGame (b);
 
+
     }
     /**
      * Testing loading people
      */
     @Test
     public void testCardUniquenessOne (){
-        Random seed = new Random();
-        int rand = seed.nextInt()%21;
-        if(rand<0)//if negative
-            rand *=-1;
-        Card randCard = myGame.getDeck().get(rand);
-        int occurence =0;
-        for(Player p: myGame.getPlayers()){
-            if(p.getMyCards().contains(randCard))
-                occurence++;
-        }
-        assertEquals(occurence, 1);
+        assertEquals(true, myGame.distributedWell());
     }
     @Test
     public void testHumanPlayer(){
          //test the name has first and last
+        assertEquals(myGame.getDeck().size(), 0);
         assertEquals(myGame.getHuman().getName().split(" ").length, 2);
         //test the color is red
         assertEquals(myGame.getHuman().getColor(), Color.RED);
@@ -109,8 +102,21 @@ public class GameSetupTests {
     }
     @Test
     public void testDistributionEvenness(){
-        for(Player p: myGame.getPlayers() )
-            assertTrue(p.getMyCards().size() == 3 || p.getMyCards().size() == 4);//21/6 = 3.5
+       // myGame.passOutCards();
+       assertEquals(myGame.getDeck().size(), 9);
+       // assertEquals(myGame.getPlayers().get(4).getMyCards().size(), 7);
+      //  assertEquals(3, myGame.getPlayers().size());
+//        for(Player p: myGame.getPlayers() ){
+//            if(!(p.getMyCards().size() == 3 || p.getMyCards().size() == 4))//21/6 = 3.5
+//                even = false;
+//
+//        }
+
+    }
+    @Test
+    public void testSpecificPlayer(){
+        assertEquals(myGame.getPlayers().get(4).getMyCards().size(), 7);
+
     }
 
 

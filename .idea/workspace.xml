@@ -64,15 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ClueGame.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ClueGame.java">
+      <file leaf-file-name="ArrayList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/ArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="43" selection-start="7786" selection-end="7786" vertical-scroll-proportion="0.868472" vertical-offset="3665" max-vertical-offset="4488">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5586#5587#0" expanded="true" />
-                <element signature="e#5614#5615#0" expanded="true" />
-              </folding>
+            <state line="634" column="0" selection-start="23203" selection-end="23203" vertical-scroll-proportion="0.0" vertical-offset="10206" max-vertical-offset="19635">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,7 +76,7 @@
       <file leaf-file-name="GameSetupTests.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameSetupTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="0" selection-start="3504" selection-end="3504" vertical-scroll-proportion="0.0" vertical-offset="1559" max-vertical-offset="2091">
+            <state line="123" column="0" selection-start="3749" selection-end="3749" vertical-scroll-proportion="0.0" vertical-offset="1661" max-vertical-offset="2193">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,11 +102,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClueGameRunner.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ClueGameRunner.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ClueGameRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="54" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <folding />
+            <state line="9" column="40" selection-start="370" selection-end="370" vertical-scroll-proportion="0.28073394" vertical-offset="0" max-vertical-offset="663">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +125,7 @@
       <file leaf-file-name="HumanPlayer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HumanPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="9" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="391">
+            <state line="12" column="9" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -136,7 +134,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="13" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1462">
+            <state line="9" column="2" selection-start="186" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
               <folding />
             </state>
           </provider>
@@ -154,7 +152,7 @@
       <file leaf-file-name="weapons.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weapons.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="5" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="204">
+            <state line="5" column="5" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
               <folding />
             </state>
           </provider>
@@ -181,13 +179,13 @@
         <option value="$PROJECT_DIR$/weapons.txt" />
         <option value="$PROJECT_DIR$/src/HumanPlayer.java" />
         <option value="$PROJECT_DIR$/src/ComputerPlayer.java" />
+        <option value="$PROJECT_DIR$/src/BoardCell.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/GameActionTests.java" />
-        <option value="$PROJECT_DIR$/src/BoardCell.java" />
-        <option value="$PROJECT_DIR$/src/Board.java" />
-        <option value="$PROJECT_DIR$/src/GameSetupTests.java" />
         <option value="$PROJECT_DIR$/src/ClueGameRunner.java" />
+        <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/ClueGame.java" />
+        <option value="$PROJECT_DIR$/src/GameSetupTests.java" />
       </list>
     </option>
   </component>
@@ -334,28 +332,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="GameSetupTests.testComputerPlayerOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="wtfII" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GameSetupTests" />
-      <option name="METHOD_NAME" value="testComputerPlayerOne" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="GameSetupTests.testComputerPlayerTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wtfII" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -379,6 +355,28 @@
       <method />
     </configuration>
     <configuration default="false" name="GameSetupTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wtfII" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameSetupTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GameSetupTests (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="wtfII" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -530,17 +528,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.ClueGameRunner" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.GameSetupTests" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GameSetupTests.testComputerPlayerOne" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GameSetupTests.testComputerPlayerTwo" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GameSetupTests (1)" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GameSetupTests.testComputerPlayerTwo" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GameSetupTests (1)" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.GameSetupTests (2)" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.GameSetupTests" />
         <item index="1" class="java.lang.String" itemvalue="Application.ClueGameRunner" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GameSetupTests (1)" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GameSetupTests.testComputerPlayerTwo" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GameSetupTests.testComputerPlayerOne" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GameSetupTests (2)" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GameSetupTests (1)" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GameSetupTests.testComputerPlayerTwo" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -575,7 +573,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1418" height="1020" extended-state="7" />
+    <frame x="-9" y="-9" width="1418" height="1020" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -588,7 +586,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890365" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -649,13 +647,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameSetupTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="12" selection-start="2917" selection-end="2917" vertical-scroll-proportion="0.0" vertical-offset="1124" max-vertical-offset="2023">
@@ -676,7 +667,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="25" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="289">
           <folding>
-            <element signature="e#0#1883#0" expanded="true" />
+            <element signature="e#0#1883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,8 +700,19 @@
         <state line="30" column="21" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="731">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5586#5587#0" expanded="true" />
-            <element signature="e#5614#5615#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="e#2237#2238#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+            <element signature="e#3706#3712#0" expanded="true" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6493#6494#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -758,7 +760,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="28" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="187">
           <folding>
-            <element signature="e#0#1883#0" expanded="true" />
+            <element signature="e#0#1883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -791,8 +793,19 @@
         <state line="10" column="25" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="323">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5586#5587#0" expanded="true" />
-            <element signature="e#5614#5615#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="e#2237#2238#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+            <element signature="e#3706#3712#0" expanded="true" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6493#6494#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -840,7 +853,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="28" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="187">
           <folding>
-            <element signature="e#0#1883#0" expanded="true" />
+            <element signature="e#0#1883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -873,8 +886,19 @@
         <state line="10" column="25" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="323">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5586#5587#0" expanded="true" />
-            <element signature="e#5614#5615#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="e#2237#2238#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+            <element signature="e#3706#3712#0" expanded="true" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6493#6494#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -930,22 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weapons.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="5" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ComputerPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="16" selection-start="367" selection-end="367" vertical-scroll-proportion="0.37913042" vertical-offset="37" max-vertical-offset="952">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Card.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="5" selection-start="582" selection-end="850" vertical-scroll-proportion="0.39447513" vertical-offset="0" max-vertical-offset="905">
@@ -981,27 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HumanPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="9" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="13" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1224">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BoardCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="977" selection-end="977" vertical-scroll-proportion="0.7441472" vertical-offset="218" max-vertical-offset="816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="276" column="0" selection-start="11039" selection-end="11039" vertical-scroll-proportion="-0.99498326" vertical-offset="4692" max-vertical-offset="36754">
@@ -1009,32 +996,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="102" selection-start="7070" selection-end="7070" vertical-scroll-proportion="0.8294314" vertical-offset="2173" max-vertical-offset="3876">
-          <folding>
-            <element signature="e#6605#6613#0" expanded="true" />
-          </folding>
+        <state line="9" column="2" selection-start="186" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClueGameRunner.java">
+    <entry file="file://$PROJECT_DIR$/weapons.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="54" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+        <state line="5" column="5" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_51/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="634" column="0" selection-start="23203" selection-end="23203" vertical-scroll-proportion="0.0" vertical-offset="10206" max-vertical-offset="19635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HumanPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="9" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameActionTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="26" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.25137615" vertical-offset="509" max-vertical-offset="1054">
+        <state line="24" column="2" selection-start="709" selection-end="709" vertical-scroll-proportion="0.40550458" vertical-offset="187" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameSetupTests.java">
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="3504" selection-end="3504" vertical-scroll-proportion="0.0" vertical-offset="1559" max-vertical-offset="2091">
+        <state line="163" column="5" selection-start="6928" selection-end="7074" vertical-scroll-proportion="0.33333334" vertical-offset="2484" max-vertical-offset="3876">
+          <folding>
+            <element signature="e#6605#6613#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BoardCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="977" selection-end="977" vertical-scroll-proportion="0.8165138" vertical-offset="218" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ComputerPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="952">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1043,11 +1058,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClueGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="43" selection-start="7786" selection-end="7786" vertical-scroll-proportion="0.868472" vertical-offset="3665" max-vertical-offset="4488">
+        <state line="140" column="2" selection-start="4157" selection-end="4157" vertical-scroll-proportion="0.0" vertical-offset="1869" max-vertical-offset="5236">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5586#5587#0" expanded="true" />
-            <element signature="e#5614#5615#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="e#2237#2238#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+            <element signature="e#3706#3712#0" expanded="true" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6493#6494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameSetupTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="0" selection-start="3749" selection-end="3749" vertical-scroll-proportion="0.0" vertical-offset="1661" max-vertical-offset="2193">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClueGameRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="40" selection-start="370" selection-end="370" vertical-scroll-proportion="0.28073394" vertical-offset="0" max-vertical-offset="663">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,13 +8,21 @@ public class ClueGameRunner  {
     Board b = new Board("gameLayout.csv","legend.txt");
     ClueGame clueGame = new ClueGame(b); //initialize all data that needs to be read in
     System.out.println("size of deck: " + clueGame.getDeck().size());
-        int counter = 0;
-        for(Player p: clueGame.getPlayers() )
-            System.out.println(p.getMyCards().size());
+        clueGame.equalityInDistribution();
 
-
-
-            System.out.println("Count: " + counter);
+//        clueGame.passOutCards();
+//        int counter = 0;
+//        for(Player p: clueGame.getPlayers() )
+//            System.out.println(p.getMyCards().size());
+//
+//            boolean even = true;
+//            System.out.println("Count: " + counter);
+//                for(Player p: clueGame.getPlayers() ){
+//            if(!(p.getMyCards().size() == 3 || p.getMyCards().size() == 4))//21/6 = 3.5
+//                even = false;
+//
+//        }
+//        System.out.println("even: " +even);
 
 //    clueGame.generateNumTypes();
 //    clueGame.passOutCards();
