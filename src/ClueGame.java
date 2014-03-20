@@ -142,7 +142,6 @@ public class ClueGame {
      *
      * @throws FileNotFoundException
      */
-
     public void loadPeople() throws FileNotFoundException {
         readInHuman();
         FileReader people = new FileReader(peopleFileName);

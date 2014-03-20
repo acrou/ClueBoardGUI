@@ -75,4 +75,38 @@ public class GameActionTests {
 //        assertTrue(loc_15_1Tot > 10);
 //    }
 //}
+
+
+
+	/**Tests that are used for the 
+	*the game's preference for rooms
+	*/
+	
+	//----------------------------------------------------------------------------------------------------------------------------------------------//
+	
+	//ensures that if a room is present in a test it is selected
+	@Test
+	public void roomPresentTest(){
+	ArraryList<Room> containsRoom = myGame.getBoard().getTarget(); //location: 3,0, 2 steps
+		
+		//Now, the test must ensure that the room is selected each time
+		for(Player p: myGame.getPlayers()){
+				if(p instanceof ComputerPlayer){
+						//The returned cell must be an instance of a room cell
+						BoardCell selected = p.picklocation(containsRoom, myGame.getBoard());
+						assertTrue(select instanceof RoomCell);
+				}
+	}
+	//Random choice 
+	@Test 
+	public void randomChoiceTests (){
+		
+		
+	}
+	
+	
+
+		
+		
+	}
 }
