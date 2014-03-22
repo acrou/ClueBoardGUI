@@ -69,6 +69,15 @@ public class Player {
 //        }
 //        return -1;
 //    }
+    public int countCardsGivenAway(Solution s){
+    	Player p = new Player();
+        if (p.disproveSuggestion(s) == null){
+        	return 0;
+        }
+        else{
+        	return 1;
+        }
+    }
     public Card disproveSuggestion(Solution suggestion){
         ArrayList<Card> found = new ArrayList<Card>();
           for(int i = 0; i<myCards.size(); i++){
@@ -91,14 +100,7 @@ public class Player {
       }
         return found.size();
     }
-    public int countCardsGivenAway(Player p, Solution s){
-        if (p.disproveSuggestion(s) != null){
-        	return 1;
-        }
-        else{
-        	return 0;
-        }
-    }
+    
 
 
 
