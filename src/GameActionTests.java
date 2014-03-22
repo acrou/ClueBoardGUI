@@ -137,6 +137,19 @@ public class GameActionTests {
 
 
         public void onePlayerMultipleMathes(){
+            Player test = new Player();
+            test.addCard(gandalf);
+            test.addCard(morgul_blade);
+            test.addCard(mordor);
+
+            int countG =0;
+            int countMB =0;
+            int countM =0;
+
+
+            for(int i = 0; i<3; i++){
+
+            }
             
         }
 
