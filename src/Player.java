@@ -15,6 +15,7 @@ public class Player {
     protected Card proof;
     protected Color color;
     public Player (){
+       seenCards = new ArrayList<Card>();
        myCards = new ArrayList<Card>();
     }
     //getters
@@ -146,7 +147,11 @@ public class Player {
             return null;
         Random rand = new Random();
         int randPosition = rand.nextInt()%found.size();
+        if(randPosition<0){
+           randPosition *= -1;
+        }
         return found.get(randPosition);
+
 
     }
     public int numberOfMatches(Solution suggestion){
