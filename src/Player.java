@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**Abstracts qualities of both types of Players
  * Created by Marissa on 3/10/14.
@@ -59,22 +60,47 @@ public class Player {
         return null;
 
     }
-    public int indexOfSuggestion(Card suggestion){
-        for(int i = 0; i<myCards.size(); i++){
-            if(myCards.get(i).getName().equals(suggestion.getName())){
-                proof = myCards.get(i);
-                return i;
-            }
+//    public int indexOfSuggestion(Card suggestion){
+//        for(int i = 0; i<myCards.size(); i++){
+//            if(myCards.get(i).getName().equals(suggestion.getName())){
+//                proof = myCards.get(i);
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
+    public Card disproveSuggestion(Solution suggestion){
+        ArrayList<Card> found = new ArrayList<Card>();
+          for(int i = 0; i<myCards.size(); i++){
+            if(suggestion.contains(myCards.get(i))){
+               found.add(myCards.get(i));
+           }
         }
-        return -1;
-    }
-    public Card disproveSuggestions(Card suggestion){
-        if(indexOfSuggestion(suggestion)<0)
-            return proof;
-        else
+        if(found.size()==0)
             return null;
-
+        Random rand = new Random();
+        int randPosition = rand.nextInt()%found.size();
+        return found.get(randPosition);
     }
+    public int numberOfMatches(Solution suggestion){
+    	ArrayList<Card> found = new ArrayList<Card>();
+        for(int i = 0; i<myCards.size(); i++){
+          if(suggestion.contains(myCards.get(i))){
+             found.add(myCards.get(i));
+         }
+      }
+        return found.size();
+    }
+    public int countCardsGivenAway(Player p, Solution s){
+        if (p.disproveSuggestion(s) != null){
+        	return 1;
+        }
+        else{
+        	return 0;
+        }
+    }
+
+
 
 
 }

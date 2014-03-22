@@ -170,7 +170,6 @@ public class ClueGame {
         if (deck.size() == 0)
             zeroCardTypes();
         for (Card c : deck) {
-            System.out.println("in room");
             switch (c.getType()) {
                 case ROOM:
                     numTypes.put(Card.CardType.ROOM, (Integer) (numTypes.get(Card.CardType.ROOM) + 1));
