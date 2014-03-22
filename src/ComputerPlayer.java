@@ -33,7 +33,7 @@ public class ComputerPlayer extends Player {
 		if(counter==4){
 			setColor(Color.YELLOW);
 
-			setName("Fodo Baggins");
+			setName("Frodo Baggins");
 		}
 		counter ++;
 
