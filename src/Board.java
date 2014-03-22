@@ -231,7 +231,7 @@ public class Board {
 		}
 
 	}
->>>>>>> 6d7dadb8f0b3af34b644a1b255ccdfd077cd8f88
+
 
 
 }

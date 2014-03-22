@@ -58,7 +58,7 @@ public class Player {
         if(onlyHasSolution())
                     return checkRoom( new Solution(unseenCards(deck)));
         //else randomly generate a suggestion that has the room set to Player's curret
-        return new Solution (generateRandomSuggestion());
+       // return new Solution (generateRandomSuggestion());
 
 
     }
@@ -66,6 +66,9 @@ public class Player {
         if(s.room.equals(((RoomCell) location).getFullName()))
             return s;
         return null;
+    }
+    public Solution generateRandomSuggestion(){
+        return  null; //todo complete this method
     }
     public boolean onlyHasSolution (){
         int countWeapon =0;
