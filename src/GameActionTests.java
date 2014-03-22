@@ -131,6 +131,40 @@ public class GameActionTests {
 
 
 	}
+    @Test
+    public void onePlayerMultipleMatches(){
+        Player test = new Player();
+        test.addCard(gollum);
+        test.addCard(narsil);
+        test.addCard(gandalf);
+        test.addCard(morgul_blade);
+        test.addCard(mordor);
+        test.addCard(shire);
+
+        Solution mySuggestion = new Solution(gollum.getName(), mordor.getName(), narsil.getName());
+        int countG =0;
+        int countM =0;
+        int countN =0;
+
+        for(int i =0; i< 10; i++)
+        {
+            if(test.disproveSuggestion(mySuggestion).getName().equals(gollum.getName())) //if gollum is returned
+                   countG++;
+            if(test.disproveSuggestion(mySuggestion).getName().equals(mordor.getName()))//if mordor is returned
+                    countM++;
+            if(test.disproveSuggestion(mySuggestion).getName().equals(narsil.getName()))//if narsil is returned
+                    countN++;
+        }
+        assertTrue(countG>1);
+        assertTrue(countM>1);
+        assertTrue(countN>1);
+
+    }
+
+    @Test
+    public void testAllPlayersAreQueried(){
+        
+    }
 
 	@Test
 	public void onePlayerTwoMatches(){//Tests that the suggestion received two matches from one person.

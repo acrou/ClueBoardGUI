@@ -54,11 +54,14 @@ public class Player {
     }
 
     public Solution makeSuggestion (ArrayList<Card> deck){
-        Card suggestion = new Card();
-        if(onlyHasSolution())
-                    return checkRoom( new Solution(unseenCards(deck)));
-        //else randomly generate a suggestion that has the room set to Player's curret
-       // return new Solution (generateRandomSuggestion());
+        if(location instanceof RoomCell){
+            if(onlyHasSolution())
+                        return checkRoom( new Solution(unseenCards(deck)));
+            //else randomly generate a suggestion that has the room set to Player's current
+            return new Solution (generateRandomSuggestion());
+        }
+        else
+            return null;
 
 
     }
@@ -67,8 +70,25 @@ public class Player {
             return s;
         return null;
     }
-    public Solution generateRandomSuggestion(){
-        return  null; //todo complete this method
+    public ArrayList<Card> generateRandomSuggestion(){
+        ArrayList<Card> suggestion = new ArrayList<Card>();
+        suggestion.add(new Card(((RoomCell)location).getFullName(), Card.CardType.ROOM));
+        //Random rand = new Random ();
+
+        Card personSuggestion = new Card(), weaponSuggestion = new Card();
+       for(Card c : seenCards)
+       {
+           if(c.getType().equals(Card.CardType.PERSON))
+               personSuggestion = c;
+           if(c.getType().equals(Card.CardType.WEAPON))
+               weaponSuggestion =c;
+
+       }
+       suggestion.add(personSuggestion);
+        suggestion.add(weaponSuggestion);
+        return  suggestion;
+
+
     }
     public boolean onlyHasSolution (){
         int countWeapon =0;
