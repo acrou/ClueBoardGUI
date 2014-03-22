@@ -221,8 +221,38 @@ public class GameActionTests {
 				if (test.countCardsGivenAway(s)==1){
 					assertTrue(true);
 				}
-			}
+			}//Do we have tests tests involving the human player, and a test that the player whose turn it is does not return a card?
 		}	
 			
+	}
+	@Test
+	public void testQueryOrder() throws FileNotFoundException{;
+		int count = 0;
+		for (Player p : myGame.getPlayers()){
+			if (count == 0){
+				assertEquals(p.getName(), "Test name");
+				count++;
+			}
+			else if (count == 1){
+				assertEquals(p.getName(), "Elessar Telcontal");
+				count++;
+			}
+			else if (count == 2){
+				assertEquals(p.getName(), "Gandalf Grey");
+				count++;
+			}
+			else if (count == 3){
+				assertEquals(p.getName(), "Gollum Trahald");
+				count++;
+			}
+			else if (count == 4){
+				assertEquals(p.getName(), "Samwise Gamgee");
+				count++;
+			}
+			else if (count == 5){
+				assertEquals(p.getName(), "Frodo Baggins");
+				count++;
+			}
+		}
 	}
 }

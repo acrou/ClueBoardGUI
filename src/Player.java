@@ -64,7 +64,8 @@ public class Player {
             return null;
 
 
-    }
+
+    }    
     public Solution checkRoom(Solution s){
         if(s.room.equals(((RoomCell) location).getFullName()))
             return s;
