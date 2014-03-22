@@ -131,40 +131,40 @@ public class GameActionTests {
 
 
 	}
-    @Test
-    public void onePlayerMultipleMatches(){
-        Player test = new Player();
-        test.addCard(gollum);
-        test.addCard(narsil);
-        test.addCard(gandalf);
-        test.addCard(morgul_blade);
-        test.addCard(mordor);
-        test.addCard(shire);
+	@Test
+	public void onePlayerMultipleMatches(){
+		Player test = new Player();
+		test.addCard(gollum);
+		test.addCard(narsil);
+		test.addCard(gandalf);
+		test.addCard(morgul_blade);
+		test.addCard(mordor);
+		test.addCard(shire);
 
-        Solution mySuggestion = new Solution(gollum.getName(), mordor.getName(), narsil.getName());
-        int countG =0;
-        int countM =0;
-        int countN =0;
+		Solution mySuggestion = new Solution(gollum.getName(), mordor.getName(), narsil.getName());
+		int countG =0;
+		int countM =0;
+		int countN =0;
 
-        for(int i =0; i< 10; i++)
-        {
-            if(test.disproveSuggestion(mySuggestion).getName().equals(gollum.getName())) //if gollum is returned
-                   countG++;
-            if(test.disproveSuggestion(mySuggestion).getName().equals(mordor.getName()))//if mordor is returned
-                    countM++;
-            if(test.disproveSuggestion(mySuggestion).getName().equals(narsil.getName()))//if narsil is returned
-                    countN++;
-        }
-        assertTrue(countG>0);
-        assertTrue(countM>0);
-        assertTrue(countN>0);
+		for(int i =0; i< 10; i++)
+		{
+			if(test.disproveSuggestion(mySuggestion).getName().equals(gollum.getName())) //if gollum is returned
+				countG++;
+			if(test.disproveSuggestion(mySuggestion).getName().equals(mordor.getName()))//if mordor is returned
+				countM++;
+			if(test.disproveSuggestion(mySuggestion).getName().equals(narsil.getName()))//if narsil is returned
+				countN++;
+		}
+		assertTrue(countG>0);
+		assertTrue(countM>0);
+		assertTrue(countN>0);
 
-    }
+	}
 
-    @Test
-    public void testAllPlayersAreQueried(){
-        
-    }
+	@Test
+	public void testAllPlayersAreQueried(){
+
+	}
 
 	@Test
 	public void onePlayerTwoMatches(){//Tests that the suggestion received two matches from one person.
@@ -223,37 +223,37 @@ public class GameActionTests {
 				}
 			}//Do we have tests tests involving the human player, and a test that the player whose turn it is does not return a card?
 		}	
-			
+
 	}
 	@Test
 	public void testQueryOrder() throws FileNotFoundException{;
-		int count = 0;
-		for (Player p : myGame.getPlayers()){
-			if (count == 0){
-				assertEquals(p.getName(), "Test name");
-				count++;
-			}
-			else if (count == 1){
-				assertEquals(p.getName(), "Elessar Telcontal");
-				count++;
-			}
-			else if (count == 2){
-				assertEquals(p.getName(), "Gandalf Grey");
-				count++;
-			}
-			else if (count == 3){
-				assertEquals(p.getName(), "Gollum Trahald");
-				count++;
-			}
-			else if (count == 4){
-				assertEquals(p.getName(), "Samwise Gamgee");
-				count++;
-			}
-			else if (count == 5){
-				assertEquals(p.getName(), "Frodo Baggins");
-				count++;
-			}
+	int count = 0;
+	for (Player p : myGame.getPlayers()){
+		if (count == 0){
+			assertEquals(p.getName(), "Test name");
+			count++;
 		}
+		else if (count == 1){
+			assertEquals(p.getName(), "Elessar Telcontal");
+			count++;
+		}
+		else if (count == 2){
+			assertEquals(p.getName(), "Gandalf Grey");
+			count++;
+		}
+		else if (count == 3){
+			assertEquals(p.getName(), "Gollum Trahald");
+			count++;
+		}
+		else if (count == 4){
+			assertEquals(p.getName(), "Samwise Gamgee");
+			count++;
+		}
+		else if (count == 5){
+			assertEquals(p.getName(), "Frodo Baggins");
+			count++;
+		}
+	}
 	}
 	@Test
 	public void testNoDisprove(){
@@ -276,6 +276,25 @@ public class GameActionTests {
 				attempt = new Solution("Gandalf Grey", "Gondor", c.getName());
 				test.disproveSuggestion(attempt);
 			}
+		}
+	}
+	@Test
+	public void testOnlyHumanCanDisprove(){
+		Player test = new Player();
+		Player human = myGame.getHuman();
+		Solution attempt = null;
+		ArrayList<Card> humanCards = human.getMyCards();
+		for (Card guess : humanCards){
+			if (guess.getType() == Card.CardType.PERSON){
+				attempt = new Solution(guess.getName(), "Gondor", "Aeglos");
+			}
+			if (guess.getType() == Card.CardType.ROOM){
+				attempt = new Solution("Gandalf Grey", guess.getName(), "Aeglos");
+			}
+			if (guess.getType() == Card.CardType.PERSON){
+				attempt = new Solution("Gandalf Grey", "Gondor", guess.getName());				
+			}
+			assertEquals(guess, test.disproveSuggestion(attempt));
 		}
 	}
 }
