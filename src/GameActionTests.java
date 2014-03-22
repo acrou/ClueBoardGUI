@@ -155,9 +155,9 @@ public class GameActionTests {
             if(test.disproveSuggestion(mySuggestion).getName().equals(narsil.getName()))//if narsil is returned
                     countN++;
         }
-        assertTrue(countG>1);
-        assertTrue(countM>1);
-        assertTrue(countN>1);
+        assertTrue(countG>0);
+        assertTrue(countM>0);
+        assertTrue(countN>0);
 
     }
 
@@ -254,5 +254,11 @@ public class GameActionTests {
 				count++;
 			}
 		}
+	}
+	@Test
+	public void testNoDisprove(){
+		Player test = new Player();
+		Solution randomGuess = new Solution("Gandalf Grey", "Gondor", "Aeglos");
+		assertEquals(null, test.disproveSuggestion(randomGuess));
 	}
 }
