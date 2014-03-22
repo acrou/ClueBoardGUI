@@ -12,6 +12,8 @@ import java.util.Set;
  * Created by Ally and Marissa on 3/11/14.
  */
 public class GameActionTests {
+
+
 	/**
 	 * Testing accusations
 	 */
@@ -82,8 +84,6 @@ public class GameActionTests {
 	//    }
 	//}
 
-
-
 	/**Tests that are used for the 
 	 *the game's preference for rooms
 	 */
@@ -131,16 +131,7 @@ public class GameActionTests {
 
 
 	}
-	@Test
-	public void testPlayerHasOneMatch(){//Tests that the player has only one match
-		Player test = new Player();
-		Solution mySuggestionOne = new Solution(gollum.getName(), "Gondor", "Sting");
-		Solution mySuggestionTwo = new Solution("Frodo Baggins", mordor.getName(), "Sting");
-		test.addCard(gollum);
-		test.addCard(mordor);
-		assertEquals(1, test.numberOfMatches(mySuggestionOne));
-		assertEquals(1, test.numberOfMatches(mySuggestionTwo));		
-	}
+
 	@Test
 	public void onePlayerTwoMatches(){//Tests that the suggestion received two matches from one person.
 		Player test = new Player();

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,6 +15,21 @@ public class Solution {
 		this.weapon = weapon;
 
 	}
+    public Solution (ArrayList<Card> solution){
+        if(solution.size()==3)
+            for(Card c: solution){
+                switch (c.getType()){
+                    case WEAPON : weapon = c.getName();
+                        break;
+                    case PERSON : person = c.getName();
+                        break;
+                    case ROOM : room = c.getName();
+                        break;
+                    default :
+                        break;
+                }
+            }
+    }
 
 	@Override
 	public boolean equals (Object other){
@@ -26,16 +42,19 @@ public class Solution {
 			return true;
 		return false;
 
-	}
-	public boolean contains(Card c){
 
-		if(person.equals(c.getName()))
-			return true;
-		if(room.equals(c.getName()))
-			return true;
-		if(weapon.equals(c.getName()))
-			return true;
-		else
-			return false;
-	}
+    }
+    public boolean contains(Card c){
+
+        if(person.equals(c.getName()))
+            return true;
+        if(room.equals(c.getName()))
+            return true;
+        if(weapon.equals(c.getName()))
+            return true;
+        else
+            return false;
+    }
+
+
 }

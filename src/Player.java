@@ -7,6 +7,7 @@ import java.util.Random;
  */
 
 public class Player {
+    protected static ArrayList<Card> seenCards;
     protected String name;
     protected ArrayList<Card> myCards;
     protected BoardCell location;
@@ -49,8 +50,19 @@ public class Player {
     }
     public void addCard(Card c){
         myCards.add(c);
+        addToSeenCards(c);
     }
 
+//    public Solution makeSuggestion (ArrayList<Card> deck){
+//        Card suggestion = new Card();
+//        if(onlyHasSolution())
+//                    return checkRoom( new Solution(unseenCards(deck)));
+//        //else randomly generate a suggestion that has the room set to Player's curret
+//       // return new Solution (generateRandomSuggestion());
+//		return null;
+//
+//
+//    }
     public Card makeSuggestion (){
         Card suggestion = new Card();
         if(suggestion.getType()==Card.CardType.ROOM && location.isRoom()) //ensure the room is the same
@@ -59,16 +71,49 @@ public class Player {
                 return null;
         return null;
 
+    }    
+    public Solution checkRoom(Solution s){
+        if(s.room.equals(((RoomCell) location).getFullName()))
+            return s;
+        return null;
     }
-//    public int indexOfSuggestion(Card suggestion){
-//        for(int i = 0; i<myCards.size(); i++){
-//            if(myCards.get(i).getName().equals(suggestion.getName())){
-//                proof = myCards.get(i);
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
+    public Solution generateRandomSuggestion(){
+        return  null; //todo complete this method
+    }
+    public boolean onlyHasSolution (){
+        int countWeapon =0;
+        int countPerson=0;
+        int countRoom =0;
+        for(Card c: seenCards){
+            switch (c.getType()){
+            case WEAPON : countWeapon++;
+                break;
+            case PERSON : countPerson++;
+                break;
+            case ROOM : countRoom++;
+                break;
+            default :
+                break;
+            }
+        }
+        if(countPerson==5&&countRoom==8&&countWeapon==5) //only one combination remains then
+            return true;
+        return false;
+    }
+    public void addToSeenCards(Card c){
+        seenCards.add(c);
+    }
+
+    public ArrayList<Card> unseenCards(ArrayList<Card> deck){
+        ArrayList<Card> unseenCards = new ArrayList<Card>();
+        for(Card c: deck){
+            if(!(seenCards.contains(c)))
+                unseenCards.add(c);
+
+        }
+        return unseenCards;
+    }
+
     public int countCardsGivenAway(Solution s){
     	Player p = new Player();
         if (p.disproveSuggestion(s) == null){
@@ -85,11 +130,13 @@ public class Player {
                found.add(myCards.get(i));
            }
         }
+
         if(found.size()==0)
             return null;
         Random rand = new Random();
         int randPosition = rand.nextInt()%found.size();
         return found.get(randPosition);
+
     }
     public int numberOfMatches(Solution suggestion){
     	ArrayList<Card> found = new ArrayList<Card>();
@@ -101,6 +148,7 @@ public class Player {
         return found.size();
     }
     
+
 
 
 

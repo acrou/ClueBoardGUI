@@ -5,6 +5,7 @@ import java.util.*;
 
 
 public class Board {
+
 	private int numRows;
 	private int numColumns;
 	private String walkwayChar;
@@ -230,6 +231,7 @@ public class Board {
 		}
 
 	}
+
 
 
 }
