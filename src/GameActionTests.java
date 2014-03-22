@@ -258,7 +258,24 @@ public class GameActionTests {
 	@Test
 	public void testNoDisprove(){
 		Player test = new Player();
+		Player human = myGame.getHuman();
+		Solution attempt;
+		ArrayList<Card>theirs = human.getMyCards();
 		Solution randomGuess = new Solution("Gandalf Grey", "Gondor", "Aeglos");
 		assertEquals(null, test.disproveSuggestion(randomGuess));
+		for (Card c : theirs){
+			if (c.getType() == Card.CardType.PERSON){
+				attempt = new Solution(c.getName(), "Gondor", "Aeglos");
+				test.disproveSuggestion(attempt);
+			}
+			if (c.getType() == Card.CardType.ROOM){
+				attempt = new Solution("Gandalf Grey", c.getName(), "Aeglos");
+				test.disproveSuggestion(attempt);
+			}
+			if (c.getType() == Card.CardType.WEAPON){
+				attempt = new Solution("Gandalf Grey", "Gondor", c.getName());
+				test.disproveSuggestion(attempt);
+			}
+		}
 	}
 }
