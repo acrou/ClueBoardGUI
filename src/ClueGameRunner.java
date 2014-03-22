@@ -10,10 +10,13 @@ public class ClueGameRunner  {
     System.out.println("size of deck: " + clueGame.getDeck().size());
        // clueGame.equalityInDistribution();
 
-//        clueGame.passOutCards();
+        clueGame.passOutCards();
 //        int counter = 0;
-//        for(Player p: clueGame.getPlayers() )
-//            System.out.println(p.getMyCards().size());
+        for(Player p: clueGame.getPlayers() ){
+            System.out.println("Player: " + p.getName());
+            for (Card c : p.getMyCards()){
+            	System.out.println(c.getName());
+            }
 //
 //            boolean even = true;
 //            System.out.println("Count: " + counter);
@@ -28,6 +31,7 @@ public class ClueGameRunner  {
 //    clueGame.passOutCards();
 //    clueGame.getHuman();
 
+        }
     }
 
 }
