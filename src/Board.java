@@ -142,6 +142,9 @@ public class Board {
                     return bc;
             Random rand = new Random ();
             int randNum = rand.nextInt()%cells.size();
+            //test if random number is negative
+            if(randNum<0)
+                randNum *= -1;
             return cells.get(randNum);
     }
 

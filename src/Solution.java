@@ -27,4 +27,15 @@ public class Solution {
         return false;
 
     }
+    public boolean contains(Card c){
+
+        if(person.equals(c.getName()))
+            return true;
+        if(room.equals(c.getName()))
+            return true;
+        if(weapon.equals(c.getName()))
+            return true;
+        else
+            return false;
+    }
 }
