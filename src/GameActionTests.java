@@ -109,7 +109,7 @@ public class GameActionTests {
 	 *
 	 */
 	@Test
-	public void onePlayerOneMatch(){
+	public void onePlayerOneMatch(){//Tests that a player has the card in question.
 		Player test = new Player();
 
 		Solution mySuggestionOne = new Solution(gollum.getName(), "Gondor", "Sting");
@@ -132,7 +132,7 @@ public class GameActionTests {
 
 	}
 	@Test
-	public void testPlayerHasOneMatch(){
+	public void testPlayerHasOneMatch(){//Tests that the player has only one match
 		Player test = new Player();
 		Solution mySuggestionOne = new Solution(gollum.getName(), "Gondor", "Sting");
 		Solution mySuggestionTwo = new Solution("Frodo Baggins", mordor.getName(), "Sting");
@@ -142,7 +142,7 @@ public class GameActionTests {
 		assertEquals(1, test.numberOfMatches(mySuggestionTwo));		
 	}
 	@Test
-	public void onePlayerTwoMatches(){
+	public void onePlayerTwoMatches(){//Tests that the suggestion received two matches from one person.
 		Player test = new Player();
 		ArrayList<Solution> list = new ArrayList<Solution>();
 		Solution mySuggestionOne = new Solution(gollum.getName(), "Gondor", narsil.getName());
@@ -165,12 +165,12 @@ public class GameActionTests {
 		test.addCard(shire);
 		for (Solution s : list){
 			if (test.numberOfMatches(s) == 2){
-				assertTrue(true);			
+				assertTrue(true);	
 			}
 		}	
 	}
 	@Test
-	public void testOnePlayerTwoMatchesGivesOneCard(){
+	public void testOnePlayerTwoMatchesGivesOneCard(){//Tests that, though there are two matches, only one card is given over.
 		Player test = new Player();
 		ArrayList<Solution> list = new ArrayList<Solution>();
 		Solution mySuggestionOne = new Solution(gollum.getName(), "Gondor", narsil.getName());
