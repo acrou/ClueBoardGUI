@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
+import javax.swing.JFrame;
+
 /**
  * Brings together the various components of Clue (like Board, Players, etc)
  * and renders a fully functioning game
@@ -14,7 +16,7 @@ import java.util.*;
  * @author Allison Crouch
  * @version March, 2014.
  */
-public class ClueGame {
+public class ClueGame extends JFrame {
     private ArrayList<Card> deck;
     private Map<Card.CardType, Integer> numTypes;
     private Player human;
@@ -295,6 +297,12 @@ public class ClueGame {
     public boolean isCorrectSolution(Solution accusation) {
         return solution.equals(accusation);
     }
-
+    public static void main(String[] args){
+    	JFrame frame = new JFrame();
+    	frame.setSize(500, 500);
+    	frame.setTitle("Game");
+    	frame.add(new Board());
+    	frame.setVisible(true);
+    }
 
 }

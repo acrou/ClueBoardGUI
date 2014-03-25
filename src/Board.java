@@ -1,10 +1,14 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Array;
 import java.util.*;
 
+import javax.swing.JPanel;
 
-public class Board {
+
+public class Board extends JPanel {
 
 	private int numRows;
 	private int numColumns;
@@ -36,8 +40,8 @@ public class Board {
 		rooms = new HashMap<Character, String>();
 		adjMtx = new HashMap<Integer, LinkedList<Integer>>();
 		targets = new HashSet<BoardCell>();
-		this.layoutFile = "ClueLayout.csv";
-		this.legendFile = "ClueLegend.txt";
+		this.layoutFile = "gameLayout.csv";
+		this.legendFile = "legend.txt";
 		loadConfigFiles();
 		calcAdjacencies();
 		visited = new boolean[numRows*numColumns];
@@ -230,6 +234,35 @@ public class Board {
 			System.out.println(e.getMessage());
 		}
 
+	}
+	public void paintComponent(Graphics g){
+		BoardCell b = getCellAt(0);
+		super.paintComponent(g);
+		int x=0, y=0;
+		g.setColor(Color.BLUE);
+		for (int i = 0; i < numRows; i++){
+			for (int j = 0; j < numColumns; j++){
+				if (b.isWalkway() == true){
+					g.setColor(Color.BLACK);
+					g.drawRect(x, y, 20, 20);
+					g.setColor(Color.YELLOW);
+					g.fillRect(x, y, 20, 20);
+					System.out.println("Walkway");
+				}
+				if (b.isRoom() == true){
+					g.setColor(Color.GRAY);
+					g.drawRect(x, y, 20, 20);
+					g.fillRect(x, y, 20, 20);
+					System.out.println("Room");
+				}
+				x += 20;
+				b = getCellAt(i*23+j);
+				System.out.println(i*23+j);
+			}
+			y+=20;
+			x = 0;
+		}
+		
 	}
 
 
